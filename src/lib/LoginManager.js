@@ -149,11 +149,11 @@ export default class LoginManager {
 
     const user = await this.awaitUser();
 
-    let email = this.store.getPermanent(this.CACHED_EMAIL);
-
     if (user) {
       return;
     }
+
+    let email = this.store.getPermanent(this.CACHED_EMAIL);
 
     if (!email) {
       // This happens when email link is clicked on a different device.

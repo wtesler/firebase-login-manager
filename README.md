@@ -17,6 +17,7 @@ The public functions of the `LoginManager` are:
 `loginWithEmail`: Request a email be sent that allows for logging in with email.
 `loginWithGoogle`: Start a federated Google login.
 `logout`: Logout
+`destruct`: Cleanup the login manager.
 
 ### For Developer
 

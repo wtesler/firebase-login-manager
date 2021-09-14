@@ -25,6 +25,7 @@ export default class LoginManager {
   CACHED_EMAIL = 'das89dbna';
 
   user = undefined;
+  claims = {};
   userPromise = undefined;
 
   listeners = [];

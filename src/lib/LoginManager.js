@@ -45,16 +45,24 @@ export default class LoginManager {
     this.firebaseAuth.useDeviceLanguage();
 
     let outerResolve;
+    let outerReject;
     this.userPromise = new Promise((resolve, reject) => {
       outerResolve = resolve;
+      outerReject = reject;
     });
 
-    this.firebaseListenerCancellable = onAuthStateChanged(this.firebaseAuth, user => {
-      this.user = user;
-      for (const listener of this.listeners) {
-        listener(user);
+    this.firebaseListenerCancellable = onAuthStateChanged(this.firebaseAuth, async(user) => {
+      try {
+        const idTokenResult = await user.getIdTokenResult();
+        this.user = user;
+        this.claims = idTokenResult.claims;
+        for (const listener of this.listeners) {
+          listener(user);
+        }
+        outerResolve();
+      } catch (e) {
+        outerReject(e);
       }
-      outerResolve();
     });
 
     if (handleRedirects) {

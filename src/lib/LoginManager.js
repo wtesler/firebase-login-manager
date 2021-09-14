@@ -53,9 +53,15 @@ export default class LoginManager {
 
     this.firebaseListenerCancellable = onAuthStateChanged(this.firebaseAuth, async(user) => {
       try {
-        const idTokenResult = await user.getIdTokenResult();
         this.user = user;
-        this.claims = idTokenResult.claims;
+
+        if (user) {
+          const idTokenResult = await user.getIdTokenResult();
+          this.claims = idTokenResult.claims;
+        } else {
+          this.claims = [];
+        }
+
         for (const listener of this.listeners) {
           listener(user);
         }

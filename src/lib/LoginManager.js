@@ -59,7 +59,7 @@ export default class LoginManager {
           const idTokenResult = await user.getIdTokenResult();
           this.claims = idTokenResult.claims;
         } else {
-          this.claims = [];
+          this.claims = {};
         }
 
         for (const listener of this.listeners) {

@@ -1,6 +1,6 @@
 {
   "name": "firebase-login-manager",
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "A login manager to handle the state of the user in a firebase website.",
   "author": "Will Tesler",
   "license": "Apache-2.0",
@@ -14,14 +14,14 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "firebase": "^9"
+    "firebase": "^9.6.10"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.5",
-    "@babel/preset-env": "^7.14.5",
-    "@babel/preset-react": "^7.14.5",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "rimraf": "3.0.2"
   },
   "main": "dist/index.js",
@@ -48,8 +48,8 @@
     "not dead"
   ],
   "keywords": [
-    "react",
-    "img",
-    "icon"
+    "firebase",
+    "login",
+    "manager"
   ]
 }
